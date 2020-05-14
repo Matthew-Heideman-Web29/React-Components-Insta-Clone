@@ -10,11 +10,14 @@ import "./App.css";
 import PostsPage from './components/PostsContainer/PostsPage.js'
 import SearchBar from './components/SearchBar/SearchBarContainer.js'
 const App = () => {
-
+  const [ search, setSearch ] = useState('')
+  const handleChange = e => {
+    setSearch(e.target.value)
+  }
   return (
     <div className="App">
-      <SearchBar />
-      <PostsPage />
+      <SearchBar search = {search} handleChange = {handleChange} />
+      <PostsPage search = {search} />
       {/* Add imported components here to render them */}
     </div>
   );
